@@ -1,0 +1,146 @@
+@font-face {
+    font-family: 'Pretendard';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/pretendard@1.0/Pretendard-Thin.woff2') format('woff2');
+    font-weight: 100;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Pretendard';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/pretendard@1.0/Pretendard-ExtraLight.woff2') format('woff2');
+    font-weight: 200;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Pretendard';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/pretendard@1.0/Pretendard-Light.woff2') format('woff2');
+    font-weight: 300;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Pretendard';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/pretendard@1.0/Pretendard-Regular.woff2') format('woff2');
+    font-weight: 400;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Pretendard';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/pretendard@1.0/Pretendard-Medium.woff2') format('woff2');
+    font-weight: 500;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Pretendard';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/pretendard@1.0/Pretendard-SemiBold.woff2') format('woff2');
+    font-weight: 600;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Pretendard';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/pretendard@1.0/Pretendard-Bold.woff2') format('woff2');
+    font-weight: 700;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Pretendard';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/pretendard@1.0/Pretendard-ExtraBold.woff2') format('woff2');
+    font-weight: 800;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Pretendard';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/pretendard@1.0/Pretendard-Black.woff2') format('woff2');
+    font-weight: 900;
+    font-display: swap;
+}
+html, body {
+    margin: 0;
+    height: 100%;
+    overflow: hidden; /* 스크롤 완전 차단 */
+}
+
+body {
+    background-color: #0B3D2E;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    position: relative; /* 추가 */
+    overflow-y: hidden;
+    align-items: center;
+    height: 100vh;
+    font-family: "Pretendard";
+}
+
+.container {
+    display: flex;
+    flex-direction: column; /* 세로로 배열 */
+    justify-content: center; /* 세로 중앙 정렬 */
+    align-items: center; /* 가로 중앙 정렬 */
+    gap: 4vh; /* 텍스트와 버튼 사이 간격 */
+    height: 100%; /* 화면 전체 높이 차지 */
+    text-align: center;
+}
+
+.progress-bar {
+
+}
+
+h1 {
+    background-image: linear-gradient(#FFD56B 0%, #ffc942 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    font-weight: 900;
+    text-align: center;
+    line-height: 1.2;
+    font-size: 10vw; /* 화면 너비 기준 비율로 크기 조정 */
+    margin: 0 5vw; /* 좌우 여백 */
+    text-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+h3 {
+    background-image: linear-gradient(#FFD56B 0%, #ffc942 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    font-weight: 900;
+    text-align: center;
+    line-height: 1.2;
+    font-size: 7vw; /* 화면 너비 기준 비율로 크기 조정 */
+    margin: 0 5vw; /* 좌우 여백 */
+    text-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+button {
+    width: 70vw;
+    height: 7vh;
+    background: linear-gradient(145deg, #9C2C2C, #7A1C1C); /* 그라디언트로 깊이감 */
+    color: #E9D8A6;
+    font-size: 20px;
+    border-radius: 12px;
+    font-family: "Pretendard", sans-serif;
+    font-weight: 600;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* 더 부드럽고 연한 그림자 */
+    transition: all 0.3s ease;
+}
+
+/* 호버 효과: 살짝 올라오면서 그림자 진해짐 */
+button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.25);
+}
+
+/* 클릭 효과: 누르는 느낌 */
+button:active {
+    transform: translateY(1px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
