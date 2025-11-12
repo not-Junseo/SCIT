@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🎄ㅣ솔크TI</title>
+
+    <link rel="stylesheet" href="main.css">
+</head>
+<body>
+    <div class="container">
+        <h1>내가 보낼 <br>크리스마스는?</h1>
+        <button>검사해보기</button>
+    </div>
+</body>
+
+
+<script>
+const snowCount = 100;
+const snowflakes = [];
+
+for (let i = 0; i < snowCount; i++) {
+    const snow = document.createElement('div');
+    snow.className = 'snowflake';
+
+    const size = Math.random() * 4 + 2;
+    snow.style.width = size + 'px';
+    snow.style.height = size + 'px';
+    snow.style.left = Math.random() * window.innerWidth + 'px';
+    snow.style.top = Math.random() * window.innerHeight + 'px';
+    snow.speed = Math.random() * 1 + 0.5; // 눈송이 속도
+
+    // 눈송이가 스크롤 영향을 안 받게 position을 fixed로 변경
+    snow.style.position = 'fixed';
+
+    document.body.appendChild(snow);
+    snowflakes.push(snow);
+}
+
+function animateSnow() {
+    snowflakes.forEach(snow => {
+        let top = parseFloat(snow.style.top);
+        top += snow.speed;
+
+        if (top >= window.innerHeight - 1) {
+            top = -10; // 화면 위로 다시 보냄
+            snow.style.left = Math.random() * window.innerWidth + 'px';
+        }
+
+        snow.style.top = top + 'px';
+    });
+    requestAnimationFrame(animateSnow);
+}
+
+animateSnow();
+</script>
+
+
+</html>
