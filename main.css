@@ -101,7 +101,7 @@ button:active {
 .snow-overlay {
     position: absolute;
     top: -30%; /* 살짝 위로 */
-    left: 57.5%;
+    left: 63%;
     transform: translateX(-50%);
     width: 80%;
     height: auto;
@@ -124,6 +124,6 @@ button:active {
 @media (max-width: 600px) {
     h1 {
         background-image: linear-gradient(#FFE6A3 0%, #FFD56B 100%);
-        text-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+        text-shadow: none;
     }
 }
