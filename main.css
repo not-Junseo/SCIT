@@ -123,7 +123,7 @@ button:active {
 
 @media (max-width: 600px) {
     h1 {
-        background-image: linear-gradient(#FFE6A3 0%, #FFD56B 100%);
-        text-shadow: none;
+        background-image: linear-gradient(#E2AC26 0%, #E2AC26 100%);
+        text-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
     }
 }
