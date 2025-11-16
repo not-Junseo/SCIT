@@ -78,6 +78,11 @@ body {
     font-family: "Pretendard";
 }
 
+.progress-bar {
+    flex-direction: row;
+    align-items: center;
+}
+
 .container {
     display: flex;
     flex-direction: column; /* 세로로 배열 */
