@@ -8,7 +8,7 @@
 html, body {
     margin: 0;
     height: 100%;
-    overflow: hidden; /* 스크롤 완전 차단 */
+    overflow-x: hidden;
 }
 
 body {
@@ -16,11 +16,13 @@ body {
     margin: 0;
     display: flex;
     justify-content: center;
-    position: relative; /* 추가 */
-    overflow-y: hidden;
+    position: relative;
+    overflow-y: auto;
     align-items: center;
-    height: 100vh;
+    min-height: 100vh;
     font-family: "OngleipParkDahyeon";
+    padding: env(safe-area-inset-top) env(safe-area-inset-right) calc(env(safe-area-inset-bottom) + 12px) env(safe-area-inset-left);
+    animation: fadeIn 0.6s ease;
 }
 
 .container {
@@ -30,8 +32,9 @@ body {
     align-items: center; /* 가로 중앙 정렬 */
     gap: 4vh; /* 텍스트와 버튼 사이 간격 */
     height: 100%; /* 화면 전체 높이 차지 */
-    padding-bottom: clamp(100px, 18vh, 240px);
+    padding-bottom: clamp(80px, 16vh, 220px);
     text-align: center;
+    animation: fadeInUp 0.8s ease;
 }
 
 .snowflake {
@@ -50,12 +53,9 @@ body {
 
 h1 {
     color: #E2AC26;
-    background-clip: text;
-    -webkit-background-clip: text;
-    color: transparent;
     font-weight: 900;
     text-align: center;
-    font-size: 16vw;
+    font-size: clamp(48px, 8vw, 130px);
     margin: 0 5vw;
 
     /* 그림자 2단계로 안정화 */
@@ -72,13 +72,13 @@ h1 {
 
 /* 버튼 스타일 */
 button {
-  width: 70vw;
-  height: 7vh;
+  width: clamp(260px, 40vw, 420px);
+  height: clamp(56px, 8vh, 82px);
   background: linear-gradient(145deg, #9C2C2C, #7A1C1C);
   color: #FFD56B;
   border: 2px solid #FFD56B;
-  font-size: 25px;
-  border-radius: 12px;
+  font-size: clamp(18px, 2.4vw, 26px);
+  border-radius: 14px;
   font-family: "OngleipParkDahyeon", sans-serif;
   font-weight: 600;
   cursor: pointer;
@@ -86,6 +86,7 @@ button {
   transition: all 0.3s ease;
   position: relative;
   z-index: 1;
+  animation: popIn 0.8s ease;
 }
 
 /* 호버 */
@@ -124,9 +125,49 @@ button:active {
     z-index: 4;
 }
 
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(12px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes popIn {
+    0% { opacity: 0; transform: scale(0.96); }
+    60% { opacity: 1; transform: scale(1.02); }
+    100% { transform: scale(1); }
+}
+
 @media (max-width: 600px) {
     h1 {
         color: #E2AC26;
-        
+    }
+}
+
+@media (min-width: 900px) {
+    .container {
+        gap: 32px;
+        padding-bottom: 140px;
+    }
+    .main-text h1 {
+        top: -3vh;
+    }
+    /* PC 환경에서는 사진(이미지) 비노출 */
+    .snow-overlay,
+    .bottom-img {
+        display: none;
+    }
+}
+
+@media (min-width: 1200px) {
+    h1 {
+        font-size: clamp(72px, 6vw, 140px);
+    }
+    button {
+        width: clamp(300px, 32vw, 460px);
+        height: clamp(60px, 7vh, 90px);
     }
 }
