@@ -19,9 +19,8 @@
         }
         @font-face {
             font-family: 'Ownglyph PDH';
-            src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2207-01@1.1/Ownglyph_PDH.woff') format('woff');
-            font-weight: 400;
-            font-style: normal;
+            src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/2411-3@1.0/Ownglyph_ParkDaHyun.woff2') format('woff2');
+            font-weight: normal;
             font-display: swap;
         }
         :root {
@@ -323,12 +322,12 @@
         ctx.fill();
 
         ctx.fillStyle = data.color || '#FFD56B';
-        ctx.font = 'bold 72px Pretendard, sans-serif';
+        ctx.font = 'bold 72px Ownglyph PDH, sans-serif';
         ctx.textAlign = 'center';
         ctx.fillText('솔크TI 결과', canvas.width / 2, 500);
 
         ctx.fillStyle = '#FFD56B';
-        ctx.font = 'bold 80px Pretendard, sans-serif';
+        ctx.font = 'bold 80px Ownglyph PDH, sans-serif';
         ctx.fillText(data.title, canvas.width / 2, 640);
 
         ctx.fillStyle = '#F5F5F5';
@@ -338,7 +337,14 @@
         ctx.font = '32px Pretendard, sans-serif';
         ctx.fillStyle = '#CFE9D8';
         wrapText(ctx, '나의 크리스마스 유형을 알아보고 스토리에 공유해보세요!', canvas.width / 2, 1250, 760, 48);
-
+        ctx.font = 'bold 34px Pretendard, sans-serif';
+        ctx.fillStyle = '#E2AC26';
+        ctx.textAlign = 'center';
+        ctx.fillText(
+            '자세히 알아보려면 브라우저에 SCTI.kro.kr을 입력해보세요!',
+            canvas.width / 2,
+            1450
+        );
         return canvas;
     }
 
