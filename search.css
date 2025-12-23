@@ -52,7 +52,7 @@ body {
     line-height: 25px;
     color: #FFD56B; 
     font-size: 20px; 
-    font-family: Ownglyph PDH; 
+    font-family: 'Ownglyph PDH'; 
     font-weight: 400; 
     word-wrap: break-word;
     transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
