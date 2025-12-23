@@ -370,28 +370,33 @@
     async function shareStoryImage() {
         const canvas = createResultCanvas();
         const blob = await new Promise(resolve => canvas.toBlob(resolve, 'image/png'));
+
         if (!blob) {
             downloadCard();
             openStory();
             return;
         }
+
         const file = new File([blob], 'solkti-result.png', { type: 'image/png' });
+
         if (navigator.canShare && navigator.canShare({ files: [file] })) {
             try {
                 await navigator.share({
                     files: [file],
                     title: '솔크TI 결과',
-                    text: buildShareText()
+                    text: buildShareText(),
+                    url: window.location.href   // ← 추가된 유일한 코드
                 });
                 return;
             } catch (e) {}
         }
+
         const link = document.createElement('a');
         link.download = 'solkti-result.png';
         link.href = URL.createObjectURL(blob);
         link.click();
         openStory();
-        alert('이미지를 저장한 뒤 인스타 스토리에서 불러오세요.');
+        alert('만약 자동 업로드가 작동하지 않는다면 이미지를 저장한 뒤 인스타 스토리에서 불러오세요.');
     }
 
     document.getElementById('copyBtn').addEventListener('click', copyResult);
