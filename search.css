@@ -60,6 +60,14 @@
     font-weight: 900;
     font-display: swap;
 }
+
+@font-face {
+    font-family: 'Ownglyph PDH';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2207-01@1.1/Ownglyph_PDH.woff') format('woff');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
 html, body {
     margin: 0;
     height: 100%;

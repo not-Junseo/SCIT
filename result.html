@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🎄ㅣ솔크TI 결과</title>
+    <style>
+        @font-face {
+            font-family: 'Pretendard';
+            src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/pretendard@1.0/Pretendard-Regular.woff2') format('woff2');
+            font-weight: 400;
+            font-display: swap;
+        }
+        @font-face {
+            font-family: 'Pretendard';
+            src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/pretendard@1.0/Pretendard-Bold.woff2') format('woff2');
+            font-weight: 700;
+            font-display: swap;
+        }
+        @font-face {
+            font-family: 'Ownglyph PDH';
+            src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2207-01@1.1/Ownglyph_PDH.woff') format('woff');
+            font-weight: 400;
+            font-style: normal;
+            font-display: swap;
+        }
+        :root {
+            --bg: #0B3D2E;
+            --card: #142B22;
+            --accent: #FFD56B;
+            --muted: #CFE9D8;
+        }
+        * { box-sizing: border-box; }
+        html, body {
+            margin: 0;
+            height: 100%;
+            background: var(--bg);
+            color: #F8F8F8;
+            font-family: 'Pretendard', sans-serif;
+            overflow-x: hidden;
+        }
+        body {
+            display: block;
+            padding: env(safe-area-inset-top) env(safe-area-inset-right) calc(env(safe-area-inset-bottom) + 16px) env(safe-area-inset-left);
+            min-height: 100vh;
+        }
+        .layout {
+            width: 100%;
+            min-height: 100vh;
+            padding: 32px clamp(16px, 4vw, 48px) 48px;
+            background: radial-gradient(80% 60% at 50% 0%, rgba(226,172,38,0.12), transparent 55%), var(--bg);
+            animation: fadeInUp 0.7s ease;
+        }
+        .headline {
+            max-width: 960px;
+            margin: 0 auto 18px;
+        }
+        .badge {
+            display: inline-block;
+            padding: 6px 12px;
+            border-radius: 12px;
+            background: #1E4C3A;
+            color: var(--muted);
+            font-size: 14px;
+            letter-spacing: 0.5px;
+            margin-bottom: 10px;
+        }
+        .title {
+            font-family: 'Ownglyph PDH', 'Pretendard', sans-serif;
+            font-size: clamp(34px, 5.8vw, 50px);
+            margin: 4px 0 14px;
+            color: var(--accent);
+            line-height: 1.2;
+        }
+        .desc {
+            font-size: 19px;
+            line-height: 1.6;
+            color: #E8F5EE;
+            margin-bottom: 12px;
+        }
+        .meta {
+            display: flex;
+            gap: 8px;
+            align-items: center;
+            color: var(--muted);
+            font-size: 14px;
+            margin-bottom: 18px;
+        }
+        .panel {
+            max-width: 960px;
+            margin: 10px auto 0;
+            background: rgba(20,43,34,0.92);
+            border: 1px solid #2E8B6B;
+            border-radius: 16px;
+            padding: 22px 20px 24px;
+            box-shadow: 0 12px 28px -10px rgba(0,0,0,0.45);
+        }
+        .actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 14px;
+        }
+        .btn {
+            padding: 12px 16px;
+            border-radius: 12px;
+            border: 1px solid #2E8B6B;
+            background: #1E4C3A;
+            color: #F2FDF7;
+            font-size: 16px;
+            cursor: pointer;
+            transition: transform 0.15s, box-shadow 0.15s, background 0.15s;
+            flex: 1 1 160px;
+        }
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 16px rgba(0,0,0,0.25);
+        }
+        .btn.primary {
+            background: linear-gradient(135deg, #E2AC26, #F6D358);
+            border: none;
+            color: #0B3D2E;
+            font-weight: 700;
+        }
+        .tip {
+            margin-top: 12px;
+            font-size: 14px;
+            color: var(--muted);
+            opacity: 0.9;
+        }
+        .sections {
+            max-width: 960px;
+            margin: 18px auto 0;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 14px;
+        }
+        .section-card {
+            background: rgba(20,43,34,0.9);
+            border: 1px solid #214f3d;
+            border-radius: 14px;
+            padding: 16px 16px 18px;
+            box-shadow: 0 10px 22px -12px rgba(0,0,0,0.4);
+        }
+        .section-title {
+            font-size: 17px;
+            color: var(--accent);
+            margin: 0 0 10px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .section-title::before {
+            content: '✦';
+            color: var(--accent);
+            font-size: 16px;
+        }
+        .bullet-list {
+            margin: 0;
+            padding-left: 16px;
+            color: #E8F5EE;
+            line-height: 1.6;
+            font-size: 15px;
+        }
+        .pill-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+        .pill {
+            padding: 6px 10px;
+            border-radius: 999px;
+            border: 1px solid #2E8B6B;
+            color: #CFE9D8;
+            background: rgba(46,139,107,0.1);
+            font-size: 14px;
+        }
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(14px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        @media (max-width: 520px) {
+            .layout { padding: 26px 16px 36px; }
+            .desc { font-size: 16px; }
+            .btn { width: 100%; }
+            .panel { padding: 18px 16px 20px; }
+        }
+        /* 눈 효과 */
+        .snowflake {
+            position: fixed;
+            background: white;
+            border-radius: 50%;
+            opacity: 0.8;
+            pointer-events: none;
+            z-index: -1;
+        }
+    </style>
+</head>
+<body>
+    <div class="layout">
+        <div class="headline">
+            <div class="badge">솔크TI 결과</div>
+            <div id="resultTitle" class="title">타입을 불러오는 중...</div>
+            <div id="resultDesc" class="desc">잠시만 기다려주세요.</div>
+            <div class="meta">
+                <span id="resultTypeKey">TYPE</span>
+            </div>
+        </div>
+        <div class="panel">
+            <div class="actions">
+                <button class="btn primary" id="retryBtn">다시 검사하기</button>
+                <button class="btn" id="copyBtn">결과 텍스트 복사</button>
+                <button class="btn" id="storyBtn">인스타 스토리로 공유</button>
+                <button class="btn" id="downloadBtn">결과 이미지 저장</button>
+            </div>
+            <div class="tip">스토리 자동 업로드는 브라우저 정책상 불가합니다. 이미지를 저장한 뒤 인스타 스토리에서 불러와 주세요.</div>
+        </div>
+        <div class="sections">
+            <div class="section-card">
+                <div class="section-title">어울리는 활동</div>
+                <ul id="actionsList" class="bullet-list"></ul>
+            </div>
+            <div class="section-card">
+                <div class="section-title">추천 플레이리스트</div>
+                <div id="playlistPills" class="pill-row"></div>
+            </div>
+            <div class="section-card">
+                <div class="section-title">당신에게 한마디</div>
+                <div id="messageText" class="desc" style="margin:0;"></div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+    const stored = sessionStorage.getItem('solktiResult');
+    const result = stored ? JSON.parse(stored) : null;
+    const fallback = {
+        typeKey: 'GIVER',
+        title: '산타형 GIVER',
+        desc: '주변을 따뜻하게 채워주는 산타 타입! 선물과 배려로 모두를 웃게 만듭니다.',
+        color: '#E2AC26'
+    };
+    const data = result || fallback;
+
+    const titleEl = document.getElementById('resultTitle');
+    const descEl = document.getElementById('resultDesc');
+    const typeEl = document.getElementById('resultTypeKey');
+
+    titleEl.textContent = data.title;
+    descEl.textContent = data.desc;
+    typeEl.textContent = data.typeKey;
+    document.documentElement.style.setProperty('--accent', data.color || '#FFD56B');
+
+    // 보조 콘텐츠
+    const extras = {
+        GIVER: {
+            actions: ['직접 포장한 선물 나눔', '친구/가족 케어 패키지 만들기', '기부 캠페인 함께 참여'],
+            playlist: ['어쿠스틱 캐럴', 'Lo-fi Holiday', 'Jazz Christmas'],
+            message: '당신의 따뜻함이 이 계절을 채웁니다. 작은 배려가 큰 기억을 만들 거예요.'
+        },
+        FOODIE: {
+            actions: ['쿠키/핫초코 만들기', '야시장·마켓 투어', '홈 파티 디저트 바 세팅'],
+            playlist: ['Sweet & Cozy', 'Cafe BGM', 'Winter Night Vibes'],
+            message: '맛있는 행복을 나누는 당신 덕분에 모두가 웃게 됩니다. 오늘도 든든히 즐겨요!'
+        },
+        PLAYER: {
+            actions: ['보드게임/파티게임 밤샘전', '캐럴+댄스 챌린지', '방구석 랜선 파티'],
+            playlist: ['EDM Christmas', 'Upbeat Party Mix', 'Pop Holiday Hits'],
+            message: '당신의 텐션이 파티의 심장! 모두가 함께 즐길 수 있게 리드해 주세요.'
+        },
+        DREAMER: {
+            actions: ['별 보기 산책', '무드 조명과 따뜻한 티타임', '사진/영상으로 추억 기록'],
+            playlist: ['Lo-fi Snow', 'Indie Winter', 'Piano & Strings'],
+            message: '감성을 채우는 당신의 페이스를 존중하세요. 조용한 시간도 최고의 선물입니다.'
+        }
+    };
+    const extra = extras[data.typeKey] || extras.GIVER;
+    const actionsList = document.getElementById('actionsList');
+    extra.actions.forEach(item => {
+        const li = document.createElement('li');
+        li.textContent = item;
+        actionsList.appendChild(li);
+    });
+    const pills = document.getElementById('playlistPills');
+    extra.playlist.forEach(p => {
+        const span = document.createElement('span');
+        span.className = 'pill';
+        span.textContent = p;
+        pills.appendChild(span);
+    });
+    document.getElementById('messageText').textContent = extra.message;
+
+    function buildShareText() {
+        return `솔크TI | ${data.title}\\n${data.desc}\\n\\n나의 크리스마스 유형을 알아보세요!`;
+    }
+
+    async function copyResult() {
+        try {
+            await navigator.clipboard.writeText(buildShareText());
+            alert('결과 텍스트가 복사되었습니다. 인스타 스토리에 붙여넣기 해보세요!');
+        } catch (e) {
+            alert('복사에 실패했습니다. 브라우저 권한을 확인해주세요.');
+        }
+    }
+
+    function openStory() {
+        window.open('https://www.instagram.com/stories/create/', '_blank');
+    }
+
+    function createResultCanvas() {
+        const canvas = document.createElement('canvas');
+        const ctx = canvas.getContext('2d');
+        canvas.width = 1080;
+        canvas.height = 1920;
+
+        const bg = '#0B3D2E';
+        ctx.fillStyle = bg;
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+        ctx.fillStyle = '#142B22';
+        ctx.beginPath();
+        ctx.roundRect(90, 320, 900, 1100, 30);
+        ctx.fill();
+
+        ctx.fillStyle = data.color || '#FFD56B';
+        ctx.font = 'bold 72px Pretendard, sans-serif';
+        ctx.textAlign = 'center';
+        ctx.fillText('솔크TI 결과', canvas.width / 2, 500);
+
+        ctx.fillStyle = '#FFD56B';
+        ctx.font = 'bold 80px Pretendard, sans-serif';
+        ctx.fillText(data.title, canvas.width / 2, 640);
+
+        ctx.fillStyle = '#F5F5F5';
+        ctx.font = '36px Pretendard, sans-serif';
+        wrapText(ctx, data.desc, canvas.width / 2, 760, 760, 52);
+
+        ctx.font = '32px Pretendard, sans-serif';
+        ctx.fillStyle = '#CFE9D8';
+        wrapText(ctx, '나의 크리스마스 유형을 알아보고 스토리에 공유해보세요!', canvas.width / 2, 1250, 760, 48);
+
+        return canvas;
+    }
+
+    function wrapText(ctx, text, x, y, maxWidth, lineHeight) {
+        const words = text.split(' ');
+        let line = '';
+        const lines = [];
+        words.forEach(word => {
+            const test = line + word + ' ';
+            if (ctx.measureText(test).width > maxWidth && line !== '') {
+                lines.push(line);
+                line = word + ' ';
+            } else {
+                line = test;
+            }
+        });
+        lines.push(line);
+        lines.forEach((l, i) => ctx.fillText(l.trim(), x, y + i * lineHeight));
+    }
+
+    function downloadCard() {
+        const canvas = createResultCanvas();
+        const link = document.createElement('a');
+        link.download = 'solkti-result.png';
+        link.href = canvas.toDataURL('image/png');
+        link.click();
+    }
+
+    async function shareStoryImage() {
+        const canvas = createResultCanvas();
+        const blob = await new Promise(resolve => canvas.toBlob(resolve, 'image/png'));
+        if (!blob) {
+            downloadCard();
+            openStory();
+            return;
+        }
+        const file = new File([blob], 'solkti-result.png', { type: 'image/png' });
+        if (navigator.canShare && navigator.canShare({ files: [file] })) {
+            try {
+                await navigator.share({
+                    files: [file],
+                    title: '솔크TI 결과',
+                    text: buildShareText()
+                });
+                return;
+            } catch (e) {}
+        }
+        const link = document.createElement('a');
+        link.download = 'solkti-result.png';
+        link.href = URL.createObjectURL(blob);
+        link.click();
+        openStory();
+        alert('이미지를 저장한 뒤 인스타 스토리에서 불러오세요.');
+    }
+
+    document.getElementById('copyBtn').addEventListener('click', copyResult);
+    document.getElementById('storyBtn').addEventListener('click', shareStoryImage);
+    document.getElementById('downloadBtn').addEventListener('click', downloadCard);
+    document.getElementById('retryBtn').addEventListener('click', () => {
+        window.location.href = 'search.html';
+    });
+
+    CanvasRenderingContext2D.prototype.roundRect = function (x, y, w, h, r) {
+        const radius = Math.min(r, w / 2, h / 2);
+        this.beginPath();
+        this.moveTo(x + radius, y);
+        this.lineTo(x + w - radius, y);
+        this.quadraticCurveTo(x + w, y, x + w, y + radius);
+        this.lineTo(x + w, y + h - radius);
+        this.quadraticCurveTo(x + w, y + h, x + w - radius, y + h);
+        this.lineTo(x + radius, y + h);
+        this.quadraticCurveTo(x, y + h, x, y + h - radius);
+        this.lineTo(x, y + radius);
+        this.quadraticCurveTo(x, y, x + radius, y);
+        this.closePath();
+    };
+
+    // 눈 효과
+    (function snow() {
+        const snowCount = 80;
+        const snowflakes = [];
+        for (let i = 0; i < snowCount; i++) {
+            const snow = document.createElement('div');
+            snow.className = 'snowflake';
+            const size = Math.random() * 4 + 2;
+            snow.style.width = size + 'px';
+            snow.style.height = size + 'px';
+            snow.style.left = Math.random() * window.innerWidth + 'px';
+            snow.style.top = Math.random() * window.innerHeight + 'px';
+            snow.speed = Math.random() * 1 + 0.5;
+            document.body.appendChild(snow);
+            snowflakes.push(snow);
+        }
+        function animateSnow() {
+            snowflakes.forEach(snow => {
+                let top = parseFloat(snow.style.top);
+                top += snow.speed;
+                if (top >= window.innerHeight - 1) {
+                    top = -10;
+                    snow.style.left = Math.random() * window.innerWidth + 'px';
+                }
+                snow.style.top = top + 'px';
+            });
+            requestAnimationFrame(animateSnow);
+        }
+        animateSnow();
+    })();
+    </script>
+</body>
+</html>
+

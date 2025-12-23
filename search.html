@@ -1,6 +1,7 @@
 <!--Made By Goyounghee 2025. 12. 14.-->
 <!--이거 건들여서 고장나면 알아서 처리하셔야함.-->
 <!--2025 크리스마스 이벤트 for 석적중학교-->
+<!--+ 이거 Js 부분은 Cursor로 만들었으니까 뭐.. 잘될겁니다.. ㅎㅇㅌ-->
 
 <!DOCTYPE html>
 <html lang="ko">
@@ -89,22 +90,22 @@ const quizData = {
     types: {
         GIVER: {
             title: '산타형 GIVER',
-            desc: '주변을 따뜻하게 채워주는 산타 타입! 선물과 배려로 모두를 웃게 만듭니다.',
+            desc: '• 준비성 만렙: 선물·편지·간식까지 미리 챙기는 계획러\n• 관계 온도↑: 소소한 배려로 분위기를 따뜻하게 만들기 능숙\n• 리더십: 필요한 사람을 먼저 돕고, 모두가 참여하도록 리딩',
             color: '#E2AC26'
         },
         FOODIE: {
             title: '먹방요정 FOODIE',
-            desc: '맛있는 걸 향해 달려가는 행복 전도사. 크리스마스는 곧 간식의 날!',
+            desc: '• 행복의 기준=맛: 신상 간식·디저트·맛집 정보에 밝음\n• 공유 본능: 맛있는 건 나눠야 제맛이라며 주변도 챙김\n• 감각형 미식가: 플레이팅, 향, 분위기까지 디테일 관찰',
             color: '#F27575'
         },
         PLAYER: {
             title: '파티러 PLAYER',
-            desc: '게임과 파티로 에너지를 터뜨리는 흥 폭발 유형. 다같이 놀 준비 완료!',
+            desc: '• 텐션 메이커: 게임·퀴즈·댄스 등으로 현장 에너지 업\n• 즉흥력: 상황에 맞춰 바로 놀거리/미션을 만들어내는 재주\n• 팀플레이어: 모두를 끌어주며 “다 같이” 즐기는 걸 선호',
             color: '#6BD9A8'
         },
         DREAMER: {
             title: '드리머 DREAMER',
-            desc: '감성 한 스푼, 로맨스 한 스푼. 잔잔한 무드로 크리스마스를 즐겨요.',
+            desc: '• 무드 장인: 조명·음악·향으로 분위기를 설계하는 감성파\n• 기록가: 사진/영상/글로 순간을 남기고 추억을 소중히 함\n• 사색가: 조용한 산책, 별 보기, 잔잔한 대화를 즐김',
             color: '#8AB2FF'
         }
     }
@@ -186,12 +187,14 @@ function showResult() {
     const typeKey = getResultType();
     const typeData = quizData.types[typeKey] || quizData.types[quizData.questions[0].options[0].type];
 
-    resultBadgeEl.textContent = '솔크TI 결과';
-    resultTitleEl.textContent = typeData.title;
-    resultDescEl.textContent = typeData.desc;
-    resultCardEl.style.setProperty('--result-color', typeData.color || '#FFD56B');
-    toggleViews('result');
-    progressBarEls.forEach(el => el.classList.add('done'));
+    // 결과 데이터 저장 후 별도 페이지로 이동
+    sessionStorage.setItem('solktiResult', JSON.stringify({
+        typeKey,
+        title: typeData.title,
+        desc: typeData.desc,
+        color: typeData.color || '#FFD56B'
+    }));
+    window.location.href = 'result.html';
 }
 
 function resetQuiz() {
