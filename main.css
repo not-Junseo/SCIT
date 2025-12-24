@@ -88,6 +88,10 @@ button {
   z-index: 1;
   animation: popIn 0.8s ease;
 }
+button {
+    padding-top: 16px;
+    padding-bottom: 16px;
+}
 
 /* 호버 */
 button:hover {
